@@ -1,4 +1,4 @@
-#JavaScript Challenge: Password Generator
+# PASSWORD GENERATOR
 
 ## User-Story
 AS AN Student I want to create an password generator

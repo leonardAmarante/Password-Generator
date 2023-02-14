@@ -1,0 +1,26 @@
+/* h1 properties*/
+h1 {
+    text-align: center;
+}
+/* background for password  properties*/
+#background-for-password-generator {
+   background-color: orange;
+   text-align: center;
+border: 10px orange solid;
+border-radius: 100px;
+
+}
+/* background for password  properties*/
+#div-for-password-generator-button {
+    text-align:center;
+    margin-top: 50px;
+
+  
+}
+/* button properties*/
+button {
+    height: 100px;
+    width: 100px;
+   
+}
+

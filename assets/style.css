@@ -1,28 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-size: 50px;
+    margin: 0;
+    padding: 0;
+    background-color: white;
 }
 
-/* h1 properties*/
-h1 {
-    text-align: center;
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(145, 13, 13);
+    color: white;
+    margin-bottom: 100px;
 }
-/* background for password  properties*/
-#background-for-password-generator {
-   background-color: orange;
-   text-align: center;
-border: 10px orange solid;
-border-radius: 100px;
+
+img {
+    width: 50px;
+}
+
+main {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
 
 }
-/* background for password  properties*/
-#div-for-password-generator-button {
-    text-align:center;
-    margin-top: 50px;
 
-  
+form {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: rgb(145, 13, 13);
+    height: 50%;
+    width: 25%;
+    flex-wrap: wrap;
+    border: none;
+    border-radius: 10px;
+    align-content: flex-start;
+    /* Prevent unnecessary space */
 }
-/* button properties*/
+
+.customs {
+
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+
+}
+
+.range {
+    margin-right: 20px;
+
+}
+
+input[type="range"] {
+    width: 60%;
+}
+
+input[type="checkbox"] {
+    padding: 40px;
+}
+
+.custom-input {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 20px;
+    padding-left: 15px;
+}
+
+span {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+label {
+    margin-right: 10px;
+}
+
+.check-box {
+    margin-bottom: 50px;
+}
+
+.check-box>label {
+    font-size: 16px;
+}
+
 button {
-  font-size: 100px;
+    width: 250px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
 }
 
+h2 {
+    text-decoration: underline;
+}
+
+.check-box-opt {
+    width: 20px;
+    height: 20px;
+}
+
+button:active {
+    background-color: rgb(20, 164, 212);
+}
+
+.password-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(145, 13, 13);
+    color: white;
+    min-height: 50%;
+    height: fit-content;
+    width: 55%;
+    border: none;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-content: flex-start;
+}
+
+.password-holder>p {
+
+    font-size: 25px;
+    width: 50%;
+    font-family: "Share Tech Mono", monospace;
+    font-size: 40px;
+    font-weight: 400;
+    font-style: normal;
+    height: fit-content;
+    word-wrap: break-word;
+    /* Allows long words to wrap */
+    overflow-wrap: break-word;
+    margin-left: 120px;
+    text-align: center;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+}
+
+
+.password-holder>button {
+
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 2px;
+    margin-right: 100px;
+}
+
+.password-holder>h3 {
+    font-size: 40px;
+    font-family: "Share Tech Mono", monospace;
+}
+
+.password-holder>.return-btn {
+    width: 250px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-left: 100px;
+}
+
+
+#copyImg {
+    width: 20px;
+}
+@media screen and (max-width: 480px) {
+    header {
+
+        font-size: 15px;
+    }
+
+    header>img {
+        width: 25px;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        color: white;
+        background-color: rgb(145, 13, 13);
+        height: 50%;
+        width: 90%;
+        flex-wrap: wrap;
+        border: none;
+        border-radius: 10px;
+        align-content: flex-start;
+        /* Prevent unnecessary space */
+    }
+
+
+    .check-box {
+        display:flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+        gap: 10px;
+    }
+
+        form > h2 {
+            text-align: center;
+        
+        }
+
+    input[type="checkbox"] {
+        padding: 15px;
+    }
+
+    .password-holder {
+        width: 95%;
+        gap: 0;
+    }
+
+    .password-holder>p {
+        font-size: 25px;
+        width: 70%;
+        margin-left: 0;
+       margin-right: 8px;
+      
+    }
+
+    .password-holder>button {
+
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 2px;
+        margin-right:0;
+        
+    }
+
+    .password-holder>.return-btn {
+        width: 250px;
+        height: 50px;
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        margin-left: 0;
+    }
+
+     #copyImg {
+        width: 10px;
+    }
+
+    .password-holder>h3 {
+        font-size: 30px;
+        font-family: "Share Tech Mono", monospace;
+        margin-bottom: 50px;
+        margin-left: 40px;
+    }
+    
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+
+    form {
+        height: 50%;
+        width: 70%;
+        /* Prevent unnecessary space */
+    }
+
+    .password-holder {
+        width: 95%;
+        gap: 5;
+    }
+}

@@ -1,76 +1,137 @@
-// targets button element
-var button = document.getElementById('password-generator-button');
-// targets <P> element
-var passwordisplayer = document.getElementById('password-generator');
-// password limits data
-var lowercasevarters = 'abcdefghijklmnopqrstuvwxyz'
-var uppercasevarters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-var characters = ''
-var symbols = '!@#$%^&*()_+~`|}{[]\:;?><,./-='
-var numbers = '0123456789'
+// password characters!
+const lowercase = "abcdefghijklmnopqrstuvwxyz"
+const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-// event listener for <button>
-document.getElementById("password-generator-button").addEventListener("click", function () {
+const symbols = "!@#$%^&*()_+~`|}{[]\:;&&><,./-="
+const numbers = "0123456789"
+let password;
+let isClick = false
 
-  var passwordlength = ''
-  //  user prompt!
-  var lenght = prompt('What Would Be Your Password Lenght? (CHOOSE BETWEEN 1 AND 128 CHARACTERS!)')
-  // if prompts statements that retrieves user input 
-  if (lenght > 0 && lenght < 129) {
-    console.log('password length sucessfull!')
-    passwordlength += lenght.valueOf(lenght)
+
+
+
+function handleSubmit(event, userAttributes) {
+  event.preventDefault(); // Prevents default form submission
+
+  const form = event.target;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+  userAttributes = data
+
+  return getUserAttributes(userAttributes);
+}
+
+function getUserAttributes(userAttributes, usercharacters) {
+  if (Object.keys(userAttributes).length >= 2) {
+    usercharacters = ""
+    userAttributes.lowerCase && (usercharacters += lowercase);
+    userAttributes.upperCase && (usercharacters += uppercase);
+    userAttributes.numbers && (usercharacters += numbers);
+    userAttributes.symbols && (usercharacters += symbols);
+
+
+
+
+    return generatePassword(userAttributes, usercharacters)
   }
+
   else {
-    alert('PLEASE CHOOSE A CORRECT PASSWORD LENGHT!!!')
-    return;
+    return alert("choose an attribute!")
   }
-
-  console.log(passwordlength)
-
-  // confirm alerts that collects user info!
-  var lowercase = confirm('would you like lowercase letters in your password?')
-  var uppercase = confirm('would you like uppercase letters in your password?')
-  var symbol = confirm('would you like Symbols in your password?')
-  var number = confirm('would you like numbers in your password?')
+}
 
 
-  // if statements for confirm alerts that adds values!
-  if (lowercase) {
-    characters += lowercasevarters
-  }
-  if (uppercase) {
-    characters += uppercasevarters
-  }
-  if (symbol) {
-    characters += symbols
-  }
-  if (number) {
-    characters += numbers
-  }
+document.getElementById("range").addEventListener("input", function (event) {
+  let sliderValue = event.target.value;
 
+  document.getElementById("customInput").value = sliderValue
 
-
-
-  var password = ''; 
-  // loop that limit is set to passwordlength value
-  for (let i = 0; i < passwordlength; i++) {
-    // random number based from 0 to characters.length
-    var random = Math.floor(Math.random() * characters.length);
-    // adds the value of character[random] to password!
-    password += characters[random];
-  }
-// makes paragraph element <p> value equal to password value!
-  passwordisplayer.textContent = password;
-
-
-
-
-
-  passwordisplayer.setAttribute('style', 'font-size:100px;', 'color:white;')
-
-
-
-
+  return sliderValue
 
 });
+
+
+
+
+function generatePassword(userAttributes, usercharacters) {
+  password = ""
+  for (let i = 0; i < userAttributes.customInput; i++) {
+
+    const random = Math.floor(Math.random() * usercharacters.length)
+    password += usercharacters[random]; // Append character instead of overwriting
+
+
+
+  }
+
+  return displayPassword()
+}
+
+
+function displayPassword() {
+  document.getElementById("passwordForm").style.display = "none"
+  if (!isClick) {
+
+    const returnButton = document.createElement("button")
+    const passwordTitle = document.createElement("h3")
+    const copyButton = document.createElement("button")
+    const passwordHolder = document.createElement("div")
+    const passwordText = document.createElement("p")
+    const copyImg = document.createElement("img")
+
+    copyImg.src = "./assets/copy-icon.png"
+    passwordTitle.textContent = "Your Password Was Generated!"
+    passwordText.textContent = password
+    returnButton.textContent = "Generate new password"
+    copyButton.append(copyImg)
+
+    copyButton.id = "copyBtn"
+    passwordText.id = "password"
+    copyImg.id = "copyImg"
+    returnButton.id = "return-btn"
+    passwordHolder.id = "passwordHolder"
+
+    returnButton.className = "return-btn"
+    passwordHolder.className = "password-holder"
+
+    passwordHolder.append(passwordTitle, passwordText, copyButton, returnButton)
+
+    document.getElementById("main").append(passwordHolder)
+    isClick = true
+  }
+
+  else {
+    passwordHolder.style.display = "flex"
+    return document.getElementById("password").textContent = password
+  }
+
+
+
+  // copyBtn section
+  document.getElementById("copyBtn").addEventListener("click", async () => {
+    const text = document.getElementById("password").innerText;
+
+    try {
+      await navigator.clipboard.writeText(text);
+      document.getElementById("copyImg").src = "./assets/check.png"
+      setTimeout(() => {
+        document.getElementById("copyImg").src = "./assets/copy-icon.png"
+      }, 600)
+
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+      alert('Failed to copy text.');
+    }
+  });
+
+
+
+  // generate new password 
+  document.getElementById("return-btn").addEventListener("click", () => {
+    document.getElementById("passwordHolder").style.display = "none"
+    document.getElementById("passwordForm").style.display = "flex"
+
+  })
+}
+
 

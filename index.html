@@ -1,32 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <title> Password Generator!</title>
 </head>
+
 <body>
-    <!-- Main Header -->
-    <header> 
-        <!--Tittle-->
-        <h1> Generate Your Secured Password!</h1>
-        <h2 id = 'passwordlegnth'>Password Lenght!</h2>
+    <header>
+        <h1>Password Generator</h1>
+        <img src="./assets/Lock_icon.png" alt="lock-logo" />
     </header>
-    <!--Main Section-->
-    <section>
+
+    <main id = "main">
+        <form  id ="passwordForm" onsubmit="handleSubmit(event)">
+            <h2>Choose your password attributes!</h2>
+
+            <label class="customs">
+                <span>Choose your password lenght:</span>
+                <input class="range" type="range" min="1" max="20" value="8" id="range"></input>
+                <input type="text" name="customInput" class="custom-input" id="customInput" value="8"></input>
+            </label>
+
+            <div class="check-box">
+                <label>
+                    LowerCase:
+                    <input class="check-box-opt" type="checkbox" name="lowerCase" id="lowerCase" />
+                </label>
+
+                <label>
+                    UpperCase:
+                    <input class="check-box-opt" type="checkbox" name="upperCase" id="upperCase" />
+                </label>
+
+                <label>
+                    Numbers:
+                    <input class="check-box-opt" type="checkbox" name="numbers" id="numbers" />
+                </label>
+
+                <label>
+                    Symbols:
+                    <input class="check-box-opt" type="checkbox" name="symbols" id="Symbols" />
+                </label>
+            </div>
+
+            <button>Generate Password</button>
+        </form>
+
        
-        <div id ="background-for-password-generator">
-            <p id = "password-generator"></p>
-        </div>
-        <!--Password generator background color-->
-<div id = "div-for-password-generator-button">
-<button id ="password-generator-button"> Generate password!</button>
+    </main>
 
-</div>
-
-    </section>
     <script src="./assets/script.js"></script>
 </body>
+
 </html>

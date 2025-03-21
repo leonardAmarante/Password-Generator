@@ -2,57 +2,80 @@
 <html lang="en">
 
 <head>
+    <!-- Character encoding and browser compatibility setup -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon Meta Tag (Logo for Browser Tab) -->
+    <link rel="icon" href="./assets/Lock_icon.png" type="image/png">
+
+    <!-- Linking external CSS file -->
     <link rel="stylesheet" href="./assets/style.css">
-    <title> Password Generator!</title>
+    <title>Password Generator!</title>
 </head>
 
 <body>
+
+    <!-- Header Section with Title and Logo -->
     <header>
         <h1>Password Generator</h1>
+        <!-- Lock icon representing password generation -->
         <img src="./assets/Lock_icon.png" alt="lock-logo" />
     </header>
 
-    <main id = "main">
-        <form  id ="passwordForm" onsubmit="handleSubmit(event)">
+    <!-- Main Section - Contains the Form to Set Password Attributes -->
+    <main id="main">
+
+        <!-- Form to Choose Password Attributes -->
+        <form id="passwordForm" onsubmit="handleSubmit(event)">
             <h2>Choose your password attributes!</h2>
 
+            <!-- Password Length Input Section with Slider and Text Input -->
             <label class="customs">
-                <span>Choose your password lenght:</span>
-                <input class="range" type="range" min="1" max="20" value="8" id="range"></input>
-                <input type="text" name="customInput" class="custom-input" id="customInput" value="8"></input>
+                <span>Choose your password length:</span>
+
+                <!-- Range Slider for Selecting Password Length -->
+                <input class="range" type="range" min="1" max="20" value="8" id="range">
+
+                <!-- Text Input to Show the Selected Length -->
+                <input type="text" name="customInput" class="custom-input" id="customInput" value="8">
             </label>
 
+            <!-- Options for Password Character Types using Checkboxes -->
             <div class="check-box">
+
+                <!-- Checkbox for Lowercase Letters -->
                 <label>
                     LowerCase:
                     <input class="check-box-opt" type="checkbox" name="lowerCase" id="lowerCase" />
                 </label>
 
+                <!-- Checkbox for Uppercase Letters -->
                 <label>
                     UpperCase:
                     <input class="check-box-opt" type="checkbox" name="upperCase" id="upperCase" />
                 </label>
 
+                <!-- Checkbox for Numbers -->
                 <label>
                     Numbers:
                     <input class="check-box-opt" type="checkbox" name="numbers" id="numbers" />
                 </label>
 
+                <!-- Checkbox for Symbols (Note: Incorrect `id` with capital 'S', should match 'symbols') -->
                 <label>
                     Symbols:
                     <input class="check-box-opt" type="checkbox" name="symbols" id="Symbols" />
                 </label>
             </div>
 
+            <!-- Submit Button to Generate Password -->
             <button>Generate Password</button>
         </form>
 
-       
     </main>
 
+    <!-- Linking external JavaScript file -->
     <script src="./assets/script.js"></script>
 </body>
 

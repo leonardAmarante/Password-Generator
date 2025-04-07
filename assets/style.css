@@ -274,5 +274,23 @@ button:active {
     /* Password holder adjustments */
     .password-holder {
         width: 95%;
+    
+}
+
+
+
+
+
+/*Regular Laptops Styling (1340px)*/
+@media screen and (min-width: 1024px) and (max-width: 1400px) {
+
+    /* Adjust form size for tablets */
+    form {
+        width: 85%;
+    }
+
+    /* Password holder adjustments */
+    .password-holder {
+        width: 95%;
     }
 }
